@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <h5 class="card-header text-center">Linija</h5>
+                        <div class="card-body">
+                            <form>
+                                <div class="input-group mb-3">
+                                    <select id="Linije" class="form-control">
+                                        <option value="">Izaberi Liniju ...</option>
+                                    </select>
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary" type="button" id="Nastavi">Nastavi</button>
+                                        <button class="btn btn-outline-secondary" type="button" id="Karte">Prikazi Karte</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="card d-none mt-5" id="Kondukter">
+                        <h5 class="card-header text-center">Kondukter</h5>
+                        <div class="card-body text-center" id="KondukterKontainer">
+                            <label id="lblKondukter1"></label>
+                            <label id="lblCenaKondukter"></label>
+                            <button id="btnKupi" class="btn btn-default">Kupi Kartu</button>
+                        </div>
+                    </div>
+                    <div class="card d-none mt-5" id="Karta">
+                        <h5 class="card-header text-center">Karta</h5>
+                        <div class="card-body text-center karta-pozadina" id="KartaKontainer">
+                            <label id="lblKartaP">
+                                ********************************************<br />
+                                Karta<br />
+                                ********************************************
+                            </label>
+                            <label id="lblBrojKarta"></label>
+                            <label id="lblZona"></label>
+                            <label id="lblLinija"></label>
+                            <label id="lblDatum"></label>
+                            <label id="lblVreme"></label>
+                            <label id="lblReg"></label>
+                            <label id="lblKondukter"></label>
+                            <label id="lblKartaK">
+                                ********************************************<br />
+                                Molimo Vas sacuvajte kartu do kraja voznje<br />
+                                ********************************************
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="card d-none mt-5" id="KarteK">
+                        <h5 class="card-header text-center">Karte</h5>
+                        <div class="table-responsive">
+                            <table id="tabela" class="table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th>Broj</th>
+                                        <th>Vreme</th>
+                                        <th>Cena</th>
+                                        <th>Ime</th>
+                                        <th>Prezime</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="main.js" type="module"></script>
+    </body>
+</html>

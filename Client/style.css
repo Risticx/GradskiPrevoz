@@ -1,0 +1,19 @@
+body 
+{
+    background-image: url("../Images/insBus.jpg");
+    background-position: top center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+table, th, td 
+{
+    border: 1px solid;
+}
+
+.karta-pozadina 
+{
+    background-image: url('../Images/paper.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+}

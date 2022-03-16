@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\Ristic~\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Ristic~\\.nuget\\packages"
+    ]
+  }
+}

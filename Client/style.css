@@ -1,9 +1,10 @@
 body 
 {
-    background-image: url("../Images/insBus.jpg");
+    background: url("../Images/insBus.jpg") fixed;
     background-position: top center;
     background-size: cover;
     background-repeat: no-repeat;
+    
 }
 
 table, th, td 
@@ -16,4 +17,5 @@ table, th, td
     background-image: url('../Images/paper.webp');
     background-size: cover;
     background-repeat: no-repeat;
+    
 }

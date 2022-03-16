@@ -1,7 +1,7 @@
 body 
 {
     background: url("../Images/insBus.jpg") fixed;
-    background-position: top center;
+    background-position: fixed;
     background-size: cover;
     background-repeat: no-repeat;
     

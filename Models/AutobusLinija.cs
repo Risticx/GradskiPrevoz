@@ -9,7 +9,6 @@ namespace Models
         [Key]
         public int ID { get; set; }
 
-        [DataType(DataType.Date)]
         public DateTime DanVoznje { get; set; }
         
 

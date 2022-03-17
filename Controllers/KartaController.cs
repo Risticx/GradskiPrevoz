@@ -48,6 +48,28 @@ namespace WebProjekat.Controllers
             return Ok(regInfo);
         }
 
+        [Route("PreuzmiKarte")]
+        [HttpGet]
+        public async Task<ActionResult> Karte() 
+        {
+            try
+            {
+                return Ok(await Context.Karte.Select(p => new {p.ID, p.BrojKarte, p.VremeIzdavanja, p.CenaKarte, p.Radnik.Ime, p.Radnik.Prezime}).ToListAsync());
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
+
+        [Route("KartaMax")]
+        [HttpGet]
+        public async Task<ActionResult> KartaMax() 
+        {
+             var max = await  Context.Karte.Select(p => p.BrojKarte).MaxAsync();
+             return Ok(max);
+        }
+
         [Route("DodajKartu/{brojKarte}/{cenaKarte}/{radnikID}")]
         [HttpPost]
          public async Task<ActionResult> DodajKartu(int brojKarte, int cenaKarte, int radnikID)
@@ -86,26 +108,28 @@ namespace WebProjekat.Controllers
             }
         }  
 
-        [Route("PreuzmiKarte")]
-        [HttpGet]
-        public async Task<ActionResult> Karte() 
+        [Route("IzbrisatiKartu/{brojKarte}")]
+        [HttpDelete]
+        public async Task<ActionResult> Izbrisi(int brojKarte) 
         {
-            try
+            try 
             {
-                return Ok(await Context.Karte.Select(p => new {p.ID, p.BrojKarte, p.VremeIzdavanja, p.CenaKarte, p.Radnik.Ime, p.Radnik.Prezime}).ToListAsync());
+                var karta = Context.Karte.Where(p => p.BrojKarte == brojKarte).FirstOrDefault();
+                if(karta != null)
+                {
+                    Context.Karte.Remove(karta);
+                    await Context.SaveChangesAsync();
+                    return Ok($"Uspesno obrisana karta sa brojem {brojKarte}");
+                }
+                else
+                {
+                    return BadRequest("Karta nije pronadjena!");
+                }
             }
-            catch (Exception e)
+            catch(Exception e)
             {
                 return BadRequest(e.Message);
             }
-        }
-
-        [Route("KartaMax")]
-        [HttpGet]
-        public async Task<ActionResult> KartaMax() 
-        {
-             var max = await  Context.Karte.Select(p => p.BrojKarte).MaxAsync();
-             return Ok(max);
-        }
+        } 
     }
 }    

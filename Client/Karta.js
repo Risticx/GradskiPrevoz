@@ -18,7 +18,7 @@ export class Karta {
         tr.appendChild(td);
 
         td = document.createElement("td");
-        td.innerHTML = this.vremeIzdavanja;
+        td.innerHTML = new Date(this.vremeIzdavanja);
         tr.appendChild(td);
 
         td = document.createElement("td");

@@ -144,32 +144,5 @@ namespace WebProjekat.Controllers
             }
         }
 
-        [Route("IzbrisatiZonu/{brojZone}")]
-        [HttpDelete]
-        public async Task<ActionResult> Izbrisi(int brojZone) 
-        {
-            if(brojZone < 1 || brojZone > 4)
-            {
-                return BadRequest("Pogresan broj");
-            }
-            try 
-            {
-                var zona = Context.Zone.Where(p => p.BrojZone == brojZone).FirstOrDefault();
-                if(zona != null)
-                {
-                    Context.Zone.Remove(zona);
-                    await Context.SaveChangesAsync();
-                    return Ok($"Uspesno obrisana zona sa brojem {brojZone}");
-                }
-                else
-                {
-                    return BadRequest("Zona nije pronadjena!");
-                }
-            }
-            catch(Exception e)
-            {
-                return BadRequest(e.Message);
-            }
-        } 
     }
 }
